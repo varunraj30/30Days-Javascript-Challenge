@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 9</title>
+</head>
+<style>
+    body {
+        background-color: grey;
+    }
+    .changeBackgroundColor {
+        background-color: red;
+    }
+    .fontColor {
+        color: chartreuse
+    }
+</style>
+<body>
+    <div id="head" class="heading fontColor div">Javascript Challenge</div>
+    <img src="https://static.wikia.nocookie.net/naruto/images/b/bb/Itachi.png" alt="">
+    <ul id="ul">
+        <li class="li">Javascript</li>
+        <li class="li">Java</li>
+    </ul>
+    <p>This is the old paragraph content</p>
+    <button>Change Paragraph</button>
+    <button class="btn">Change Border Colour</button>
+</body>
+<script>
+    // Activity 1
+
+    const head = document.getElementById("head")
+    // console.log(head);
+    head.textContent = "Changed text content"
+
+    const heading = document.getElementsByClassName("heading")
+    // console.log(heading);
+    heading[0].style.backgroundColor = "orange"
+
+    // Activity 2
+
+    const divTwo = document.createElement("div")
+    divTwo.textContent = "Create a div element"
+    document.body.appendChild(divTwo)
+
+    const ul= document.getElementById("ul")
+    console.log(ul);
+    const newLi = document.createElement("li")
+    newLi.textContent="Python"
+    ul.appendChild(newLi)
+
+    // Activity 3
+
+    const li = document.getElementsByClassName("li")
+    console.log(li);
+    li[1].remove()
+
+    const liLast = document.querySelector("li:last-child")
+    console.log(liLast)
+    liLast.remove()
+
+    // Activity 4
+    const img = document.querySelector("img") 
+    img.setAttribute("src","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAvQn9r0KIJurVLI0_ozLa9D_l4buf2VT25g&s")
+
+    const div = document.querySelector("div")   
+    div.classList.add("changeBackgroundColor")
+    div.classList.remove("fontColor")
+    
+
+    // Activity 5
+    const btn = document.querySelector("button")
+    btn.addEventListener("click", function () {
+    const p = document.querySelector("p")
+    p.textContent="After clicking on the button para got changed :P"
+    } 
+    )
+
+    const btnTwo = document.querySelector(".btn")
+    console.log(btnTwo)
+    btnTwo.addEventListener("mouseover", function () {
+        btnTwo.style.borderColor="red"
+    } 
+    )
+
+
+</script>
+</html>
