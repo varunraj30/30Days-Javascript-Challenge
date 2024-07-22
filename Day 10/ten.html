@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      background-color: gray;
+    }
+  </style>
+  <body>
+    <p>This is the default para</p>
+    <button>Change p content</button> <br />
+    <div>
+        <img
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1CXmUGU49zh_K2PmC-IkJGRdEgs3GE6tZBw&s"
+    ></img>
+    <button id="toggle">Toggle</button>
+    </div>
+    <div id="Hover">Activity 2</div>
+    <input type="text" />
+    <p id="currentValue"></p>
+    <form id="myform">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username"/> <br/>
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email"/> <br/>
+        <button type="submit">Submit</button>
+    </form>
+    </form>
+    <label for="dropdown">Choose Option: </label>
+   <select id="dropdown">
+      <option value="0" selected disabled hidden>Select any option</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+   </select>
+   <p id="dropdownValue"></p>
+   <ul>
+    <li>Javacript</li>
+    <li>Python</li>
+    <li>C++</li>
+   </ul>
+   <input name="newitem" id="newitem"/>
+   <button id="additem">Add item</button>
+   <ul id="parent"></ul>
+    </body>
+
+  <script>
+    // Activity 1
+    const btn = document.querySelector("button");
+    btn.addEventListener("click", function () {
+      const p = document.querySelector("p");
+      p.textContent = "This is changed content";
+    });
+
+    const toggle = document.querySelector("#toggle");
+    toggle.addEventListener("dblclick", function () {
+    const img = document.querySelector("img");
+
+            if (img.style.display === "none") {
+                img.style.display = "block";
+                toggle.textContent = "Toggle"
+            } else {
+                img.style.display = "none";
+                toggle.textContent = "Untoggle"
+
+            }
+        })
+   
+ 
+    // Activity 2
+        const hover = document.getElementById("Hover")
+        hover.addEventListener("mouseover",function () {
+            hover.style.backgroundColor ="red"
+        })
+
+        hover.addEventListener("mouseout",function () {
+            hover.style.backgroundColor =""
+
+        })
+
+    // Activity 3
+        const input = document.querySelector("input")
+        input.addEventListener("keydown",function (e) {
+          console.log("key pressed", e.key);
+        })
+
+        input.addEventListener("keyup",function () {
+            const p = document.getElementById("currentValue")
+            p.textContent = this.value
+
+        })
+ 
+    // Activity 4
+        const form = document.getElementById("myform")
+        form.addEventListener('submit',function (e) {
+            e.preventDefault()           
+            const formData = new FormData(form);
+            console.log(formData);
+            formData.forEach((value) =>{ 
+                console.log(value);
+            })
+        })
+        
+        const dropdown = document.querySelector("#dropdown")
+        const dropdownValue = document.querySelector("#dropdownValue")
+        dropdown.addEventListener('change',function () {
+            dropdownValue.textContent = "Selected Value " + dropdown.value
+        })
+
+    // Activity 5
+        const ul = document.querySelector("ul")
+        ul.addEventListener('click',function (e) {
+            console.log( e.target.textContent);
+        })
+
+        const addItem = document.getElementById("additem")
+        const parent = document.getElementById("parent")
+        const newItem = document.getElementById("newitem")
+
+        // addItem.addEventListener('click',function () {
+        //     const child = document.createElement("li")
+        //     child.textContent = "Itachi"
+        //     parent.appendChild(child)
+        // })
+        
+        addItem.addEventListener('click',function () {
+            const child = document.createElement("li")
+            child.textContent = newItem.value
+            parent.appendChild(child)
+        })
+
+  </script>
+</html>
+
+
